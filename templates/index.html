@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="Data Dashboard">
+   <meta name="author" content="Aboze Brain">
+   <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+   <title>Data Dashboard</title>
+
+
+ </head>
+ <body>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-array@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-transition@3"></script>
+    
+    <script>
+        const worldDataUrl = "{{ url_for('get_world_data') }}";
+        const energyAccessUrl = "{{ url_for('get_energy_access') }}";
+        const lineChartUrl = "{{ url_for('get_line_chart_data') }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/world_choropleth.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/lineChart.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    
+
+       <div>
+         <h1>Worldwide Access to Energy per Year</h1>
+         <p>The choropleth map shows the the percentage in each country of people who have access to electricity in any given year. You may use the slider to change the selected year between 1990 and 
+          2014, and observe the transitions. </p>
+       </div>
+
+       <div class="visualization">
+       <div id = "scrub"></div>
+        <div id="choroplethSVG"></div>
+        
+        <br>
+        <br>
+        <br>
+        
+        <p>In the line chart, you will see the maximum, minimum and mean value for access to electrictiy (in percentage). Clicking on a country in the map above will show it's
+          line on the line chart for comparison.</p>
+        </div>
+
+        <div id="lineChartSVG"></div>
+ </body>
+</html>

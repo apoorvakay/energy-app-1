@@ -1,0 +1,15 @@
+
+.visualization{
+    width: 1600px;
+    height: 500px;
+}
+ 
+ #choroplethSVG {
+    width: 70%;
+    float: left;
+ }
+ 
+ #lineChartSVG {
+    width: 30%;
+    float: left;
+ }
